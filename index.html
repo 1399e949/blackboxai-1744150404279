@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .sidebar {
+            scrollbar-width: thin;
+            scrollbar-color: #4d4d4d #343541;
+        }
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background-color: #4d4d4d;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 h-screen flex overflow-hidden">
+    <!-- Sidebar -->
+    <div class="w-64 bg-gray-900 border-r border-gray-700 flex flex-col h-full">
+        <div class="p-4 border-b border-gray-700">
+            <button class="flex items-center gap-3 p-3 rounded-md border border-gray-600 hover:bg-gray-700 w-full">
+                <i class="fas fa-plus"></i>
+                <span>New chat</span>
+            </button>
+        </div>
+        <div class="sidebar flex-1 overflow-y-auto">
+            <div class="p-3 text-sm text-gray-400">Today</div>
+            <div class="px-3 py-2 hover:bg-gray-800 rounded-md cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <i class="far fa-comment"></i>
+                    <span class="truncate">Explain quantum computing</span>
+                </div>
+            </div>
+            <div class="px-3 py-2 hover:bg-gray-800 rounded-md cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <i class="far fa-comment"></i>
+                    <span class="truncate">JavaScript array methods</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 border-t border-gray-700">
+            <div class="flex items-center gap-3 p-3 hover:bg-gray-800 rounded-md cursor-pointer">
+                <div class="w-6 h-6 rounded-full bg-gray-600 flex items-center justify-center">
+                    <i class="fas fa-user text-xs"></i>
+                </div>
+                <span>User</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col h-full overflow-hidden">
+        <!-- Navbar -->
+        <header class="p-4 border-b border-gray-700 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-bars"></i>
+                <span class="font-bold">ChatGPT</span>
+            </div>
+            <div class="w-6 h-6 rounded-full bg-gray-600 flex items-center justify-center">
+                <i class="fas fa-user text-xs"></i>
+            </div>
+        </header>
+
+        <!-- Chat Area -->
+        <div class="flex-1 overflow-y-auto p-4 space-y-6">
+            <!-- AI Message -->
+            <div class="max-w-3xl mx-auto">
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center shrink-0">
+                        <i class="fas fa-robot text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold">ChatGPT</p>
+                        <div class="mt-2 space-y-3">
+                            <p>Hello! How can I help you today?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Message -->
+            <div class="max-w-3xl mx-auto">
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center shrink-0">
+                        <i class="fas fa-user text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold">You</p>
+                        <div class="mt-2 space-y-3">
+                            <p>Explain quantum computing in simple terms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="p-4 border-t border-gray-700">
+            <div class="max-w-3xl mx-auto relative">
+                <textarea 
+                    class="w-full bg-gray-700 rounded-lg p-4 pr-12 focus:outline-none resize-none" 
+                    rows="1" 
+                    placeholder="Message ChatGPT..."
+                ></textarea>
+                <button class="absolute right-3 bottom-3 p-1 rounded-md text-gray-400 hover:text-gray-100">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <p class="text-xs text-gray-500 text-center mt-2">
+                ChatGPT can make mistakes. Consider checking important information.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-resize textarea
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        });
+    </script>
+</body>
+</html>
